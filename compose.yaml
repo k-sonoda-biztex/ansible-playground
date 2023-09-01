@@ -1,0 +1,17 @@
+services:
+  ansible:
+    entrypoint: ansible
+    build:
+      context: .
+    volumes:
+      - type: bind
+        source: ${PWD}
+        target: /var/opt/ansible
+        read_only: true
+      - type: bind
+        source: ~/.ansible
+        target: /root/.ansible
+      - type: bind
+        source: ~/.ssh
+        target: /root/.ssh
+        read_only: true
