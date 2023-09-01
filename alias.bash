@@ -1,3 +1,6 @@
 #!/bin/bash
 # source this file
-alias ansible="docker compose run --rm ansible"
+for i in ansible ansible-playbook
+do
+  alias $i="docker compose run --rm $i"
+done
