@@ -8,3 +8,7 @@
       ansible.builtin.debug:
         msg: Hello world
 
+- name: Galaxy Playbook
+  hosts: all
+  roles:
+    - role: geerlingguy.nodejs

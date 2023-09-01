@@ -2,10 +2,6 @@ services:
   base:
     build:
       context: .
-  ansible:
-    entrypoint: ansible
-    build:
-      context: .
     volumes: &ansible_volumes
       - type: bind
         source: ${PWD}
@@ -18,6 +14,12 @@ services:
         source: ~/.ssh
         target: /root/.ssh
         read_only: true
+
+  ansible:
+    entrypoint: ansible
+    build:
+      context: .
+    volumes: *ansible_volumes
 
   ansible-playbook:
     entrypoint: ansible-playbook
